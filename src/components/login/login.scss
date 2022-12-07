@@ -1,0 +1,37 @@
+.loginBackground {
+  width: 100vw;
+  height: 100vh;
+  background: url(../../img/sfondoLogin.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.loginCard {
+  width: 25rem;
+  padding: 2rem;
+  position: absolute;
+  right: 10rem;
+  top: 15rem;
+  text-align: center;
+
+  .loginTitle {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .passwordGroup {
+    margin-top: 1rem;
+  }
+
+  .loginButton {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .labelGroup {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+}

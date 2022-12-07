@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginApi } from '../../api/LoginApi';
 import { IUserLogin } from '../../interfaces/user-interface';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import "./login.scss"
 
 function Login() {
 
@@ -30,24 +32,36 @@ function Login() {
 
   return (
     <>
-      <Card>
-        <Form onSubmit={(e) => handleSubmit(e)}>
-          <Form.Group>
-            <Form.Label>Email</Form.Label>
-            <Form.Control type='text' onChange={(e) => setEmail(e.target.value)} />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type='text' onChange={(e) => setPassword(e.target.value)} />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Login
-          </Button>
-        </Form>
-        <label>Non hai un account? <Link to="/register">Registrati qui</Link></label>
-        <br />
-        {errorLogin ? <span>Non è stato trovato nessun utente</span> : null}
-      </Card>
+      <div className="loginBackground">
+        <Card className='loginCard'>
+          <div className='loginTitle'>
+            <span>Accedi alla tua area riservata</span>
+          </div>
+          <Form onSubmit={(e) => handleSubmit(e)}>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Email"
+              className="mb-3"
+            >
+              <Form.Control type="email" placeholder="name@example.com" onChange={(e) => setEmail(e.target.value)} required />
+            </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Password"
+              className="mb-3 passwordGroup"
+            >
+              <Form.Control type="password" placeholder="yourpassword" onChange={(e) => setPassword(e.target.value)} required />
+            </FloatingLabel>
+            <Button variant="primary" type="submit" className='loginButton'>
+              Login
+            </Button>
+          </Form>
+          <label className='labelGroup'>Non hai un account? <Link to="/register">Registrati qui</Link></label>
+          <div>
+            {errorLogin ? <span>Non è stato trovato nessun utente</span> : null}
+          </div>
+        </Card>
+      </div>
     </>
   )
 }
