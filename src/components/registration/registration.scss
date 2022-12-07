@@ -1,4 +1,4 @@
-.loginBackground {
+.registrationBackground {
   width: 100vw;
   height: 100vh;
   background: url(../../img/sfondoLogin.jpg) no-repeat center center fixed;
@@ -7,7 +7,8 @@
   -o-background-size: cover;
   background-size: cover;
 
-  .loginCard {
+
+  .registrationCard {
     width: 25rem;
     padding: 2rem;
     position: absolute;
@@ -15,22 +16,18 @@
     top: 15rem;
     text-align: center;
 
-    .loginTitle {
+    .registrationTitle {
       font-weight: 600;
       margin-bottom: 1rem;
     }
 
-    .passwordGroup {
-      margin-top: 1rem;
-    }
-
-    .loginButton {
+    .registerButton {
       width: 100%;
+      margin-bottom: 1rem;
     }
 
     .labelGroup {
       font-weight: 600;
-      margin-top: 1rem;
     }
   }
 }

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IUserRegister } from '../../interfaces/user-interface';
-import { registerApi } from "../../api/RegisterApi"
+import { registerApi } from "../../api/RegisterApi";
+import { Card, Form, Button } from 'react-bootstrap';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import "./registration.scss"
 
 function Register() {
   const [name, setUserName] = useState<string>("")
@@ -22,34 +25,47 @@ function Register() {
 
   return (
     <>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>
-            Nome:
-            <input type="text" name="name" onChange={(e) => setUserName(e.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Cognome:
-            <input type="text" name="surname" onChange={(e) => setSurname(e.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Email:
-            <input type="text" name="email" onChange={(e) => setEmail(e.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password:
-            <input type="text" name="password" onChange={(e) => setPassword(e.target.value)} />
-          </label>
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
-      <label>Torna alla <Link to="/">Login</Link></label>
+      <div className="registrationBackground">
+        <Card className='registrationCard'>
+          <div className='registrationTitle'>
+            <span>Inserisci i tuoi dati</span>
+          </div>
+          <Form onSubmit={(e) => handleSubmit(e)}>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Nome"
+              className="mb-3"
+            >
+              <Form.Control type="text" placeholder="Nome" onChange={(e) => setUserName(e.target.value)} required />
+            </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Cognome"
+              className="mb-3"
+            >
+              <Form.Control type="text" placeholder="Cognome" onChange={(e) => setSurname(e.target.value)} required />
+            </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Email"
+              className="mb-3"
+            >
+              <Form.Control type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+            </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Password"
+              className="mb-3"
+            >
+              <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+            </FloatingLabel>
+            <Button variant="primary" type="submit" className='registerButton'>
+              Conferma iscrizione
+            </Button>
+          </Form>
+          <label className='labelGroup'>Torna alla <Link to="/">Login</Link></label>
+        </Card>
+      </div>
     </>
   );
 }
