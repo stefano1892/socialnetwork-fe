@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IUserRegister } from '../../interfaces/user-interface';
 import { registerApi } from "../../api/RegisterApi";
 import { Card, Form, Button } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./registration.scss"
+import { AxiosResponse } from 'axios';
 
 function Register() {
   const [name, setUserName] = useState<string>("")
@@ -12,7 +13,9 @@ function Register() {
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
-  const handleSubmit = (e: any) => {
+  let navigate = useNavigate();
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const registerParameters: IUserRegister = {
       name: name,
@@ -20,7 +23,10 @@ function Register() {
       email: email,
       password: password
     };
-    registerApi(registerParameters);
+    const sendRegistration: any = await registerApi(registerParameters);
+    if (sendRegistration.status == 200) {
+      navigate("/")
+    }
   }
 
   return (
