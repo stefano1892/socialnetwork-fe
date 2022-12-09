@@ -5,6 +5,7 @@ import { loginApi } from '../../api/LoginApi';
 import { IUserLogin } from '../../interfaces/user-interface';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./login.scss"
+import { Counter } from '../../features/counter/Counter';
 
 function Login() {
 
@@ -20,7 +21,8 @@ function Login() {
       email: email,
       password: password
     };
-    let doLogin = await loginApi(loginParameters);
+    const doLogin = await loginApi(loginParameters);
+    console.log(doLogin)
     if (doLogin) {
       navigate("/profile")
     } else {
@@ -37,14 +39,14 @@ function Login() {
           </div>
           <Form onSubmit={(e) => handleSubmit(e)}>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="emailLogin"
               label="Email"
               className="mb-3"
             >
               <Form.Control type="email" placeholder="name@example.com" onChange={(e) => setEmail(e.target.value)} required />
             </FloatingLabel>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="passwordLogin"
               label="Password"
               className="mb-3 passwordGroup"
             >
@@ -56,7 +58,7 @@ function Login() {
           </Form>
           <label className='labelGroup'>Non hai un account? <Link to="/register">Registrati qui</Link></label>
           <div>
-            {errorLogin ? <span>Non è stato trovato nessun utente</span> : null}
+            {errorLogin ? <span>Utente non trovato</span> : null}
           </div>
         </Card>
       </div>

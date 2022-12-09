@@ -12,6 +12,7 @@ function Register() {
   const [surname, setSurname] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
+  const [existingUser, setExistingUser] = useState<boolean>(false)
 
   let navigate = useNavigate();
 
@@ -24,8 +25,13 @@ function Register() {
       password: password
     };
     const sendRegistration: any = await registerApi(registerParameters);
-    if (sendRegistration.status == 200) {
+
+    console.log(sendRegistration)
+
+    if (sendRegistration.status == 200 && typeof sendRegistration.data != "string") {
       navigate("/")
+    } else {
+      setExistingUser(true)
     }
   }
 
@@ -38,28 +44,28 @@ function Register() {
           </div>
           <Form onSubmit={(e) => handleSubmit(e)}>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="nameRegistration"
               label="Nome"
               className="mb-3"
             >
               <Form.Control type="text" placeholder="Nome" onChange={(e) => setUserName(e.target.value)} required />
             </FloatingLabel>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="surnameRegistration"
               label="Cognome"
               className="mb-3"
             >
               <Form.Control type="text" placeholder="Cognome" onChange={(e) => setSurname(e.target.value)} required />
             </FloatingLabel>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="emailRegistration"
               label="Email"
               className="mb-3"
             >
               <Form.Control type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
             </FloatingLabel>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="passwordRegistration"
               label="Password"
               className="mb-3"
             >
@@ -70,6 +76,7 @@ function Register() {
             </Button>
           </Form>
           <label className='labelGroup'>Torna alla <Link to="/">Login</Link></label>
+          {existingUser ? <div className='existingUser'>Utente già registrato.</div> : null}
         </Card>
       </div>
     </>
