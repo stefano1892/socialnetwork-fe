@@ -1,20 +1,23 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useRoutes } from "react-router-dom";
 import Login from './components/login/Login';
 import Register from './components/registration/Registration';
 import UserProfile from './components/userProfile/UserProfile';
+import HomeComponent from './components/home/Home';
+import NavigationBarComponent from './components/navigationBar/NavigationBar';
 
 const App: React.FC = () => {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/profile" element={<><NavigationBarComponent /><UserProfile /></>} />
+          <Route path="/home" element={<><NavigationBarComponent /><HomeComponent /></>} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
