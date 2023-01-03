@@ -5,7 +5,8 @@ import { loginApi } from '../../api/LoginApi';
 import { IUserLogin } from '../../interfaces/user-interface';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./login.scss"
-import { Counter } from '../../features/counter/Counter';
+import { useAppDispatch } from '../../app/hooks';
+import { setFullUser } from '../../features/user/userSlice';
 
 function Login() {
 
@@ -14,6 +15,9 @@ function Login() {
   const [errorLogin, setErrorLogin] = useState<boolean>(false)
 
   let navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const agencyLogo = require('../../img/f1Logo.png')
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -24,6 +28,7 @@ function Login() {
     const doLogin = await loginApi(loginParameters);
     console.log(doLogin)
     if (doLogin) {
+      dispatch(setFullUser(doLogin))
       navigate("/profile")
     } else {
       setErrorLogin(true)
@@ -32,7 +37,8 @@ function Login() {
 
   return (
     <>
-      <div className="loginBackground">
+      <div className='container loginContainer'>
+        <img src={agencyLogo} />
         <Card className='loginCard'>
           <div className='loginTitle'>
             <span>Accedi alla tua area riservata</span>

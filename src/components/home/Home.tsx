@@ -4,10 +4,11 @@ import "./style.scss"
 
 const HomeComponent = () => {
 
+
   return (
     <>
       <div className="homeBody">
-        <Row>
+        <Row style={{ width: '100%' }}>
           <Col className="leftCol">
             Parte sinistra
           </Col>
