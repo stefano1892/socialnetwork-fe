@@ -5,7 +5,6 @@ import { registerApi } from "../../api/RegisterApi";
 import { Card, Form, Button } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./registration.scss"
-import { AxiosResponse } from 'axios';
 
 function Register() {
   const [name, setUserName] = useState<string>("")
@@ -15,6 +14,8 @@ function Register() {
   const [existingUser, setExistingUser] = useState<boolean>(false)
 
   let navigate = useNavigate();
+
+  const agencyLogo = require('../../img/f1Logo.png')
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -37,7 +38,8 @@ function Register() {
 
   return (
     <>
-      <div className="registrationBackground">
+      <div className="container registrationContainer">
+        <img src={agencyLogo} />
         <Card className='registrationCard'>
           <div className='registrationTitle'>
             <span>Inserisci i tuoi dati</span>
