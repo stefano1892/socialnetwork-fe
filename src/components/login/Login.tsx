@@ -29,7 +29,7 @@ function Login() {
     console.log(doLogin)
     if (doLogin) {
       dispatch(setFullUser(doLogin))
-      navigate("/profile")
+      navigate("/home")
     } else {
       setErrorLogin(true)
     }

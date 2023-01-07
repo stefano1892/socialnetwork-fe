@@ -1,5 +1,7 @@
+import { Card } from "@mui/material"
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
+import AddNewPost from "../addNewPost/addNewPost"
 import "./style.scss"
 
 const HomeComponent = () => {
@@ -10,13 +12,20 @@ const HomeComponent = () => {
       <div className="homeBody">
         <Row style={{ width: '100%' }}>
           <Col className="leftCol">
-            Parte sinistra
+            <Card className="leftColCard">
+              card sinistra
+            </Card>
           </Col>
           <Col className="centerCol">
-            Parte centrale
+            <AddNewPost />
+            <Card>
+              card centrale
+            </Card>
           </Col>
           <Col className="rightCol">
-            Parte destra
+            <Card className="rightColCard">
+              card destra
+            </Card>
           </Col>
         </Row>
       </div>
