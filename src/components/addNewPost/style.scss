@@ -1,4 +1,14 @@
 .cardContainer {
   margin-top: 1rem;
   margin-bottom: 2rem;
+  height: 12rem;
+  padding: 1rem;
+
+  .textarea {
+    resize: none;
+  }
+
+  .submitButton {
+    margin-top: auto;
+  }
 }
