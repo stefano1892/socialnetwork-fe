@@ -9,6 +9,39 @@
   }
 
   .submitButton {
-    margin-top: auto;
+    margin-top: 1rem;
+    width: 10rem;
+    height: 20px;
+  }
+
+  .chipContainer {
+    margin-top: 1rem;
+
+    .photoChip {
+      background-color: #EFF2F6;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+
+      .photoIcon {
+        width: 1rem;
+      }
+    }
+
+    .videoChip {
+      background-color: #EFF2F6;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+
+      .videoIcon {
+        width: 1rem;
+      }
+    }
+
   }
 }
