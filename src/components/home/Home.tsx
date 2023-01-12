@@ -3,6 +3,7 @@ import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import AddNewPost from "../addNewPost/addNewPost"
 import HomeLeftColumn from "./leftColumn/leftColumn"
+import HomeRightColumn from "./rightColumn/rightColumn"
 import "./style.scss"
 
 const HomeComponent = () => {
@@ -25,7 +26,7 @@ const HomeComponent = () => {
           </Col>
           <Col className="rightCol">
             <Card className="rightColCard">
-              card destra
+              <HomeRightColumn />
             </Card>
           </Col>
         </Row>
