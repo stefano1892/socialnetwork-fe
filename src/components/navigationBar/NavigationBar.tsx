@@ -3,6 +3,7 @@ import "./style.scss"
 import { useAppSelector } from "../../app/hooks";
 import { selectUserValues } from "../../features/user/userSlice";
 import { Button, Container, Form, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import f1Logo from '../../img/f1Logo.png'
 
 export default function NavigationBarComponent() {
 
@@ -13,7 +14,9 @@ export default function NavigationBarComponent() {
       <div className='nav'>
         <Navbar expand={'md'} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+            <Navbar.Brand href="#">
+              <img src={f1Logo} style={{ width: '5rem' }} />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-md`}
