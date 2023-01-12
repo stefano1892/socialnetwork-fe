@@ -2,6 +2,7 @@ import { Card } from "@mui/material"
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import AddNewPost from "../addNewPost/addNewPost"
+import HomeLeftColumn from "./leftColumn/leftColumn"
 import "./style.scss"
 
 const HomeComponent = () => {
@@ -13,7 +14,7 @@ const HomeComponent = () => {
         <Row style={{ width: '100%' }}>
           <Col className="leftCol">
             <Card className="leftColCard">
-              card sinistra
+              <HomeLeftColumn />
             </Card>
           </Col>
           <Col className="centerCol">

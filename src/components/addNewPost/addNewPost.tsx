@@ -1,8 +1,6 @@
 import React from 'react';
-import { Card, Chip } from '@mui/material';
+import { Card } from '@mui/material';
 import { Form } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileVideo, faImage } from '@fortawesome/free-regular-svg-icons';
 import iconPotoSvg from './img/iconPhoto.png';
 import iconVideo from './img/iconVideo.png'
 
@@ -34,10 +32,10 @@ const AddNewPost = () => {
           </Form.Group>
           <Stack direction="row" className='chipContainer' spacing={1}>
             <div className='photoChip'>
-              <img src={iconPotoSvg} className='photoIcon' /> Foto
+              <img alt="photoIcon" src={iconPotoSvg} className='photoIcon' /> Foto
             </div>
             <div className='videoChip'>
-              <img src={iconVideo} className='videoIcon' /> Video
+              <img alt="videoIcon" src={iconVideo} className='videoIcon' /> Video
             </div>
           </Stack>
         </Form>

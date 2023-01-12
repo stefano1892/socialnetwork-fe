@@ -1,0 +1,37 @@
+.informationsContainer {
+  padding: 1rem;
+}
+
+.profileImage {
+  width: 4rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nameStyle {
+  font-weight: bold;
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.cardFooter {
+  position: absolute;
+  bottom: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+  border-top: 1px solid #EFF2F6;
+  color: #2668B5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.personalPhrase {
+  margin-top: 1rem;
+  font-weight: 100;
+}
+
+.separator {
+  width: 100%;
+  border-bottom: 1px solid #EFF2F6;
+  margin-top: 2rem;
+}
