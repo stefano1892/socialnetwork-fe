@@ -12,6 +12,22 @@ const HomeLeftColumn = () => {
     console.log("vai al profilo")
   }
 
+  const goToEvents = () => {
+    console.log("vai agli eventi")
+  }
+
+  const goToGroups = () => {
+    console.log("vai ai gruppi")
+  }
+
+  const goToUsers = () => {
+    console.log("vai a tutti gli utenti")
+  }
+
+  const goToSettings = () => {
+    console.log("vai alle impostazioni")
+  }
+
   return (
     <>
       <div className='informationsContainer'>
@@ -31,16 +47,16 @@ const HomeLeftColumn = () => {
       </div>
       <div className='container'>
         <div className='menuItem'>
-          <img src={icona_eventi} alt='event_icon' className='menuIcon' /> Eventi
+          <img src={icona_eventi} alt='event_icon' className='menuIcon' onClick={() => goToEvents()} /> Eventi
         </div>
         <div className='menuItem'>
-          <img src={icona_gruppi} alt='groups_icon' className='menuIcon' /> Gruppi
+          <img src={icona_gruppi} alt='groups_icon' className='menuIcon' onClick={() => goToGroups()} /> Gruppi
         </div>
         <div className='menuItem'>
-          <img src={icona_utenti} alt='users_icon' className='menuIcon' /> Utenti
+          <img src={icona_utenti} alt='users_icon' className='menuIcon' onClick={() => goToUsers()} /> Utenti
         </div>
         <div className='menuItem'>
-          <img src={icona_impostazioni} alt='settings_icon' className='menuIcon' /> Impostazioni
+          <img src={icona_impostazioni} alt='settings_icon' className='menuIcon' onClick={() => goToSettings()} /> Impostazioni
         </div>
       </div>
       <div className='cardFooter' onClick={() => goToProfile()}>
