@@ -2,63 +2,51 @@ import * as React from 'react';
 import "./style.scss"
 import { useAppSelector } from "../../app/hooks";
 import { selectUserValues } from "../../features/user/userSlice";
-import { Button, Container, Form, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { Button, Col, Container, Form, Nav, Navbar, NavDropdown, Offcanvas, Row } from 'react-bootstrap';
 import f1Logo from '../../img/f1Logo.png'
+import ProfileImage from '../home/img/foto_profilo.jpg'
+import SettingsIcon from '../home/leftColumn/img/icona_impostazioni_singola.png'
+import NotifyIcon from '../../img/icons/icona_notifiche.png'
+import ChatIcon from '../../img/icons/icona_chat.png'
 
 export default function NavigationBarComponent() {
 
   const user = useAppSelector(selectUserValues);
 
+  const handleSubmit = (e: any) => {
+    if (e.keyCode === 13 && e.shiftKey === false) {
+      e.preventDefault();
+      console.log('hai cercato una persona ' + e.target.value)
+    }
+  }
+
   return (
     <>
       <div className='nav'>
-        <Navbar expand={'md'} className="mb-3">
-          <Container fluid>
-            <Navbar.Brand href="#">
-              <img src={f1Logo} style={{ width: '5rem' }} />
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-md`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-md`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>
-                  Offcanvas
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
-                  <NavDropdown
-                    title="Dropdown"
-                    id={`offcanvasNavbarDropdown-expand-md`}
-                  >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
+        <Row className='w-100 mt-1'>
+          <Col style={{ textAlign: 'center' }}>
+            <img src={f1Logo} className='agencyLogo' />
+          </Col>
+          <Col>
+            <Form>
+              <Form.Control type="text" placeholder="Cerca un collega" onKeyDown={(e) => handleSubmit(e)} />
+            </Form>
+          </Col>
+          <Col className='iconsContentCol'>
+            <div>
+              <img src={ChatIcon} className='settingsIcon' />
+            </div>
+            <div className='navItemMargin'>
+              <img src={NotifyIcon} className='settingsIcon' />
+            </div>
+            <div className='navItemMargin'>
+              <img src={SettingsIcon} className='settingsIcon' />
+            </div>
+            <div className='navItemMargin'>
+              <img src={ProfileImage} className='profileImage' />
+            </div>
+          </Col>
+        </Row>
       </div>
     </>
   );

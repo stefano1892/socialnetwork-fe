@@ -1,3 +1,5 @@
+@import '../../../theme/themeColors.scss';
+
 .informationsContainer {
   padding: 1rem;
 }
@@ -19,8 +21,8 @@
   bottom: 1rem;
   padding-top: 1rem;
   width: 100%;
-  border-top: 1px solid #EFF2F6;
-  color: #2668B5;
+  border-top: 1px solid $body-color;
+  color: $base-blue;
   font-weight: 600;
   cursor: pointer;
 }
@@ -32,7 +34,7 @@
 
 .separator {
   width: 100%;
-  border-bottom: 1px solid #EFF2F6;
+  border-bottom: 1px solid $body-color;
   margin-top: 2rem;
 }
 
