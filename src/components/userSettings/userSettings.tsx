@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap';
 import LeftSettings from './leftSettings/leftSettings';
+import RightSettings from './rightSettings/rightSettings';
 
 const UserSettings = () => {
 
@@ -15,7 +16,7 @@ const UserSettings = () => {
           <LeftSettings />
         </Col>
         <Col md={8}>
-          col2
+          <RightSettings />
         </Col>
       </Row>
     </>

@@ -7,33 +7,17 @@ const LeftSettings = () => {
   return (
     <>
       <Card className='settingsCard'>
-        <table>
-          <tr>
-            <td>
-              1
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2
-            </td>
-          </tr>
-          <tr>
-            <td>
-              3
-            </td>
-          </tr>
-          <tr>
-            <td>
-              4
-            </td>
-          </tr>
-          <tr>
-            <td>
-              5
-            </td>
-          </tr>
-        </table>
+        <div className='container p-5'>
+          <div>
+            Account
+          </div>
+          <div className='mt-3'>
+            Notifiche
+          </div>
+          <div className='mt-3'>
+            Chiudi account
+          </div>
+        </div>
       </Card>
     </>
   );
