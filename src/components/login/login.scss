@@ -1,3 +1,5 @@
+@import '../../theme//themeColors.scss';
+
 .loginContainer {
   text-align: center;
   margin-top: 10rem;
@@ -21,7 +23,7 @@
 
   .loginButton {
     width: 100%;
-    background-color: #2668B5;
+    background-color: $base-blue;
   }
 
   .labelGroup {

@@ -8,6 +8,7 @@ import ProfileImage from '../home/img/foto_profilo.jpg'
 import SettingsIcon from '../home/leftColumn/img/icona_impostazioni_singola.png'
 import NotifyIcon from '../../img/icons/icona_notifiche.png'
 import ChatIcon from '../../img/icons/icona_chat.png'
+import { Link } from 'react-router-dom';
 
 export default function NavigationBarComponent() {
 
@@ -40,7 +41,9 @@ export default function NavigationBarComponent() {
               <img src={NotifyIcon} className='settingsIcon' />
             </div>
             <div className='navItemMargin'>
-              <img src={SettingsIcon} className='settingsIcon' />
+              <Link to="/settings">
+                <img src={SettingsIcon} className='settingsIcon' />
+              </Link>
             </div>
             <div className='navItemMargin'>
               <img src={ProfileImage} className='profileImage' />
