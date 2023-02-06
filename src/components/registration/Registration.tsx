@@ -27,8 +27,6 @@ function Register() {
     };
     const sendRegistration: any = await registerApi(registerParameters);
 
-    console.log(sendRegistration)
-
     if (sendRegistration.status == 200 && typeof sendRegistration.data != "string") {
       navigate("/")
     } else {
