@@ -9,5 +9,12 @@
 
   .menuVoices {
     font-weight: $font-weight-side-menu;
+    cursor: pointer;
+
+    .settingsIcon {
+      width: 1rem;
+      margin-right: 0.5rem;
+    }
+
   }
 }
