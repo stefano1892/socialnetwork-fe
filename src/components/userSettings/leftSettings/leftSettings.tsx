@@ -8,13 +8,13 @@ const LeftSettings = () => {
     <>
       <Card className='settingsCard'>
         <div className='container p-5'>
-          <div>
+          <div className='menuVoices'>
             Account
           </div>
-          <div className='mt-3'>
+          <div className='mt-3 menuVoices'>
             Notifiche
           </div>
-          <div className='mt-3'>
+          <div className='mt-3 menuVoices'>
             Chiudi account
           </div>
         </div>
