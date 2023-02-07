@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { Col, Form, Row } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Col, Form, Row } from 'react-bootstrap';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "./style.scss";
 
 const AccountSettings = () => {
@@ -7,22 +9,25 @@ const AccountSettings = () => {
   const [name, setName] = useState("")
   const [lastName, setLastName] = useState("")
   const [secondName, setSecondName] = useState("")
-  const [birthDate, setBirthDate] = useState("")
   const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
   const [startDate, setStartDate] = useState(new Date());
 
   const handleSubmit = (e: any) => {
+    console.log(e)
     e.preventDefault();
+
+    const dateFormatted = startDate.toLocaleDateString("it-IT")
+
     const values = {
       name: name,
       lastname: lastName,
       secondName: secondName,
-      birthDate: birthDate,
+      birthDate: dateFormatted,
       email: email,
       phoneNumber: phoneNumber
     }
-    console.log(values)
+    //fare chiamata per mandare a db i risultati
   }
 
 
@@ -54,9 +59,30 @@ const AccountSettings = () => {
           <Col md={4}>
             <Form.Group className="mb-3" controlId="birthDate">
               <Form.Label className='required'>Data di nascita</Form.Label>
-              {/*<Form.Control type="date" onChange={(e) => setLastName(e.target.value)} value={birthDate} required />*/}
               <div>
-                <input type="date" className='datepicker' />
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date: any) => setStartDate(date)}
+                  dateFormat="dd/MM/yyyy"
+                  className='datepicker'
+                  popperPlacement="top-end"
+                  popperModifiers={[
+                    {
+                      name: "offset",
+                      options: {
+                        offset: [5, 10],
+                      },
+                    },
+                    {
+                      name: "preventOverflow",
+                      options: {
+                        rootBoundary: "viewport",
+                        tether: false,
+                        altAxis: true,
+                      },
+                    },
+                  ]}
+                />
               </div>
             </Form.Group>
           </Col>
