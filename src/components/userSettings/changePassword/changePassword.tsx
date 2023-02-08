@@ -1,24 +1,35 @@
 import React, { useState } from 'react'
-import { Col, Form, Row } from 'react-bootstrap'
+import { Alert, Col, Form, Row } from 'react-bootstrap'
 
 const ChangePassword = () => {
 
   const [newPassword, setNewPassword] = useState("")
   const [confirmNewPassword, setConfirmNewPassword] = useState("")
+  const [passwordError, setPasswordError] = useState(false)
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
+    setPasswordError(false)
     const values = {
       newPassword: newPassword,
       confirmNewPassword: confirmNewPassword
     }
-    console.log(values)
+    if (newPassword === confirmNewPassword) {
+      //fare la chiamata per update password
+      console.log(values)
+    } else {
+      setPasswordError(true)
+    }
+
   }
 
   return (
     <>
       <div className='container p-4'>
-        <div className='mb-5 title_account_settings'>Cambia Password</div>
+        <div className='mb-3 title_account_settings'>Cambia Password</div>
+        {passwordError ? <Alert key={"danger"} variant={"danger"} className="mt-3">
+          Le password non coincidono
+        </Alert> : null}
         <form onSubmit={handleSubmit}>
           <Row>
             <Form.Group className="mb-3" controlId="newPassword">

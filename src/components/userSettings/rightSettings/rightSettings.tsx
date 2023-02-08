@@ -4,7 +4,7 @@ import './style.scss'
 import NotificationsSettings from '../notificationSettings/notifications'
 import CloseAccountSettings from '../closeAccount/closeAccount'
 import AccountSettings from '../accountSettings/accountSettings'
-import ChangePassword from '../changePassword/hangePassword'
+import ChangePassword from '../changePassword/changePassword'
 
 interface rightSettingsProps {
   setting: number
@@ -24,7 +24,7 @@ const RightSettings = (props: rightSettingsProps) => {
         {settingSelected[props.setting]}
       </Card>
       {props.setting == 0 ? <>
-        <Card className="settingsRightCard">
+        <Card className="settingsRightCard mb-3">
           <ChangePassword />
         </Card>
       </> : null}
