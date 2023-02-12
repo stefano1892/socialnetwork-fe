@@ -4,23 +4,27 @@ import './style.scss'
 import icona_gruppi from '../../../img/icons/icona_gruppi.png'
 import icona_eventi from '../../../img/icons/icona_eventi.png'
 import icona_utenti from '../../../img/icons/icona_utenti.png'
+import { Link } from 'react-router-dom'
+import { useAppSelector } from '../../../app/hooks'
+import { selectUserValues } from '../../../features/user/userSlice'
 
 const HomeLeftColumn = () => {
 
-  const goToProfile = () => {
-    console.log("vai al profilo")
-  }
+  const user = useAppSelector(selectUserValues);
 
-  const goToEvents = () => {
-    console.log("vai agli eventi")
-  }
+  const renderNameAndSurname = () => {
+    const firstname = user.name
+    const secondName = user.secondName ? user.secondName : null
+    const lastname = user.surname
 
-  const goToGroups = () => {
-    console.log("vai ai gruppi")
-  }
+    const nameCapitalized = firstname.charAt(0).toUpperCase() + firstname.slice(1)
+    const secondNameCapitalized = secondName ? secondName.charAt(0).toUpperCase() + secondName.slice(1) + ' ' : ''
+    const lastnameCapitalized = lastname.charAt(0).toUpperCase() + lastname.slice(1)
 
-  const goToUsers = () => {
-    console.log("vai a tutti gli utenti")
+    const fullName = nameCapitalized + ' ' + secondNameCapitalized + lastnameCapitalized
+
+
+    return fullName
   }
 
   return (
@@ -30,7 +34,7 @@ const HomeLeftColumn = () => {
           <img src={ImageProfile} className='profileImage' />
         </div>
         <div className='nameStyle'>
-          Stefano Calcaterra
+          {renderNameAndSurname()}
         </div>
         <div className='jobStyle'>
           Frontend Developer
@@ -42,18 +46,26 @@ const HomeLeftColumn = () => {
       </div>
       <div className='container'>
         <div className='menuItem'>
-          <img src={icona_eventi} alt='event_icon' className='menuIcon' onClick={() => goToEvents()} /> Eventi
+          <Link to="/events" className='linkStyle'>
+            <img src={icona_eventi} alt='event_icon' className='menuIcon' /> Eventi
+          </Link>
         </div>
         <div className='menuItem'>
-          <img src={icona_gruppi} alt='groups_icon' className='menuIcon' onClick={() => goToGroups()} /> Gruppi
+          <Link to="/groups" className='linkStyle'>
+            <img src={icona_gruppi} alt='groups_icon' className='menuIcon' /> Gruppi
+          </Link>
         </div>
         <div className='menuItem'>
-          <img src={icona_utenti} alt='users_icon' className='menuIcon' onClick={() => goToUsers()} /> Utenti
+          <Link to="/users" className='linkStyle'>
+            <img src={icona_utenti} alt='users_icon' className='menuIcon' /> Utenti
+          </Link>
         </div>
       </div>
-      <div className='cardFooter' onClick={() => goToProfile()}>
-        Vedi profilo
-      </div>
+      <Link to="/profile">
+        <div className='cardFooter'>
+          Vedi profilo
+        </div>
+      </Link>
     </>
   );
 }

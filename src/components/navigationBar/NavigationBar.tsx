@@ -2,12 +2,13 @@ import * as React from 'react';
 import "./style.scss"
 import { useAppSelector } from "../../app/hooks";
 import { selectUserValues } from "../../features/user/userSlice";
-import { Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, OverlayTrigger, Popover, Row } from 'react-bootstrap';
 import f1Logo from '../../img/f1Logo.png'
 import ProfileImage from '../home/img/foto_profilo.jpg'
 import SettingsIcon from '../../img/icons/icon_settings.png'
 import NotifyIcon from '../../img/icons/icona_notifiche.png'
 import ChatIcon from '../../img/icons/icona_chat.png'
+import LogoutIcon from '../../img/icons/logout.png'
 import { Link } from 'react-router-dom';
 
 export default function NavigationBarComponent() {
@@ -20,6 +21,31 @@ export default function NavigationBarComponent() {
       console.log('hai cercato una persona ' + e.target.value)
     }
   }
+
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Body>
+        <div className='container settingsIcon'>
+          <div style={{ marginBottom: '0.5rem' }}>
+            <Link to="/settings" className='menu_item_container'>
+              <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' /> Impostazioni
+            </Link>
+          </div>
+          <div>
+            <Link to="/" className='menu_item_container'>
+              <img src={LogoutIcon} alt="logoutIcon" className='settingsIcon' /> Esci
+            </Link>
+          </div>
+        </div>
+      </Popover.Body>
+    </Popover>
+  );
+
+  const Example = () => (
+    <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+      <img src={ProfileImage} alt="profileIcon" className='profileImage' />
+    </OverlayTrigger>
+  );
 
   return (
     <>
@@ -47,12 +73,7 @@ export default function NavigationBarComponent() {
               </Link>
             </div>
             <div className='navItemMargin'>
-              <Link to="/settings">
-                <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' />
-              </Link>
-            </div>
-            <div className='navItemMargin'>
-              <img src={ProfileImage} alt="profileIcon" className='profileImage' />
+              {Example()}
             </div>
           </Col>
         </Row>

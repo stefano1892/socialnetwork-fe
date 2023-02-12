@@ -36,3 +36,23 @@
     margin-left: 1rem;
   }
 }
+
+
+.settingsIcon {
+
+  font-weight: 600;
+
+  .menu_item_container {
+
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+
+    .settingsIcon {
+      width: 1rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { IUserLogin } from "../interfaces/user-interface";
-import { baseUrl } from "../costants"
+import { baseUrl } from "../costants";
 
 
 export const loginApi = (loginParameters: IUserLogin) => {

@@ -3,6 +3,7 @@ import { RootState, AppThunk } from '../../app/store';
 
 export interface UserState {
   name: string;
+  secondName?: string;
   surname: string;
   email: string;
   password: string;
@@ -11,6 +12,7 @@ export interface UserState {
 const initialState: UserState = {
   name: '',
   surname: '',
+  secondName: '',
   email: '',
   password: ''
 };
