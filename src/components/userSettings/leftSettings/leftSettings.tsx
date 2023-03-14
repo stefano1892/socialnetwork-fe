@@ -25,7 +25,7 @@ const LeftSettings = (props: LeftSettingsProps) => {
           </div>
           <div className='mt-3 menuVoices' onClick={() => props.setSetting(2)}>
             <img src={CloseAccount} alt="close_account_icon" className='settingsIcon' />
-            Chiudi account
+            Cancella account
           </div>
         </div>
       </Card>

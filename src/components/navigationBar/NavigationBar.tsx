@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React, { useRef } from 'react';
 import "./style.scss"
 import { useAppSelector } from "../../app/hooks";
 import { selectUserValues } from "../../features/user/userSlice";
-import { Button, Col, Form, OverlayTrigger, Popover, Row } from 'react-bootstrap';
-import f1Logo from '../../img/f1Logo.png'
+import { Col, Dropdown, Form, OverlayTrigger, Popover, Row } from 'react-bootstrap';
+import agencyLogo from '../../img/agencylogo.png'
 import ProfileImage from '../home/img/foto_profilo.jpg'
 import SettingsIcon from '../../img/icons/icon_settings.png'
 import NotifyIcon from '../../img/icons/icona_notifiche.png'
@@ -41,7 +41,7 @@ export default function NavigationBarComponent() {
     </Popover>
   );
 
-  const Example = () => (
+  const ProfileImageComponent = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
       <img src={ProfileImage} alt="profileIcon" className='profileImage' />
     </OverlayTrigger>
@@ -53,7 +53,7 @@ export default function NavigationBarComponent() {
         <Row className='w-100 mt-1'>
           <Col style={{ textAlign: 'center' }}>
             <Link to="/home">
-              <img src={f1Logo} alt="agencyLogo" className='agencyLogo' />
+              <img src={agencyLogo} alt="agencyLogo" className='agencyLogo' />
             </Link>
           </Col>
           <Col>
@@ -73,7 +73,7 @@ export default function NavigationBarComponent() {
               </Link>
             </div>
             <div className='navItemMargin'>
-              {Example()}
+              <ProfileImageComponent />
             </div>
           </Col>
         </Row>

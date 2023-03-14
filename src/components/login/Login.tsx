@@ -17,7 +17,7 @@ function Login() {
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const agencyLogo = require('../../img/f1Logo.png')
+  const agencyLogo = require('../../img/agencylogo.png')
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 
 export interface UserState {
+  id: number;
   name: string;
   secondName?: string;
   surname: string;
@@ -10,6 +11,7 @@ export interface UserState {
 }
 
 const initialState: UserState = {
+  id: 0,
   name: '',
   surname: '',
   secondName: '',
@@ -22,6 +24,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setFullUser: (state, action) => {
+      state.id = action.payload.id;
       state.name = action.payload.name;
       state.surname = action.payload.surname;
       state.email = action.payload.email;

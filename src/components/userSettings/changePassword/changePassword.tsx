@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Alert, Col, Form, Row } from 'react-bootstrap'
 import { updatePasswordApi } from '../../../api/UpdatePasswordApi'
+import { useAppSelector } from '../../../app/hooks'
+import { selectUserValues } from '../../../features/user/userSlice'
 
 const ChangePassword = () => {
 
@@ -8,12 +10,13 @@ const ChangePassword = () => {
   const [confirmNewPassword, setConfirmNewPassword] = useState("")
   const [passwordError, setPasswordError] = useState(false)
 
+  const user = useAppSelector(selectUserValues);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     setPasswordError(false)
-    if (newPassword === confirmNewPassword) {
-      const updatePassword = await updatePasswordApi(confirmNewPassword)
-      console.log(updatePassword)
+    if (newPassword == confirmNewPassword) {
+      updatePasswordApi(confirmNewPassword, user.id)
     } else {
       setPasswordError(true)
     }
