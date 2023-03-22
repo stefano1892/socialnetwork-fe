@@ -1,10 +1,19 @@
 import axios from 'axios';
 import { baseUrl } from "../costants";
+import { IBaseSettingsUser } from '../interfaces/user-interface';
 
-export const updatePasswordApi = (newPassword: string, id: number) => {
-  console.log(newPassword)
-  console.log(id)
-  axios.put(`${baseUrl}/updatePassword`, { password: newPassword, id: id })
-    .then(res => console.log('res', res))
+export const updatePasswordApi = async (newPassword: string, id: number) => {
+  return await axios.put(`${baseUrl}/updatePassword`, { password: newPassword, id: id })
+    .then(res => {
+      return res.status
+    })
+    .catch(error => console.log(error))
+}
+
+export const updateSettings = async (id: number, values: IBaseSettingsUser) => {
+  return await axios.put(`${baseUrl}/updateBaseSettings`, { id, values })
+    .then(res => {
+      return res.status
+    })
     .catch(error => console.log(error))
 }

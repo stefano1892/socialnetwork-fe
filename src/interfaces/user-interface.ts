@@ -10,10 +10,19 @@ export interface IUserRegister extends IUserLogin {
 
 export interface IUser {
   name: string,
+  secondName: string,
   surname: string,
   email: string,
   password: string,
-  skillSet: string[],
-  birthDate: string,
-  phoneNumber: number
+  birthDate: any,
+  phoneNumber: string
+}
+
+export interface IBaseSettingsUser {
+  name: string,
+  secondName: string,
+  lastName: string,
+  email: string,
+  birthDate: any,
+  phoneNumber: string
 }

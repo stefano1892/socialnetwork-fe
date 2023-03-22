@@ -1,33 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { updateSettings } from '../../../api/UpdatePasswordApi';
+import { useAppSelector } from '../../../app/hooks';
+import { selectUserValues } from '../../../features/user/userSlice';
+import { IBaseSettingsUser } from '../../../interfaces/user-interface';
 import "./style.scss";
 
 const AccountSettings = () => {
 
-  const [name, setName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [secondName, setSecondName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [startDate, setStartDate] = useState(new Date());
+  const [name, setName] = useState<string>("")
+  const [lastName, setLastName] = useState<string>("")
+  const [secondName, setSecondName] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [phoneNumber, setPhoneNumber] = useState<string>("")
+  const [birthDate, setBirthDate] = useState<Date>();
 
-  const handleSubmit = (e: any) => {
+  const user = useAppSelector(selectUserValues);
+
+  useEffect(() => {
+    setName(user.name)
+    setLastName(user.surname)
+    if (user.secondName) {
+      setSecondName(user.secondName)
+    }
+    setEmail(user.email)
+    setPhoneNumber(user.phoneNumber)
+    setBirthDate(new Date(user.birthDate))
+  }, [])
+
+  const handleSubmit = async (e: any) => {
     console.log(e)
     e.preventDefault();
 
-    const dateFormatted = startDate.toLocaleDateString("it-IT")
+    const dateFormatted = birthDate && birthDate.toLocaleDateString("it-IT")
 
-    const values = {
+    const userId = user.id
+
+    const values: IBaseSettingsUser = {
       name: name,
-      lastname: lastName,
+      lastName: lastName,
       secondName: secondName,
       birthDate: dateFormatted,
       email: email,
       phoneNumber: phoneNumber
     }
+
     //fare chiamata per mandare a db i risultati
+    const settingsUpdated = await updateSettings(userId, values)
+    console.log(settingsUpdated)
   }
 
 
@@ -61,8 +83,8 @@ const AccountSettings = () => {
               <Form.Label className='required'>Data di nascita</Form.Label>
               <div>
                 <DatePicker
-                  selected={startDate}
-                  onChange={(date: any) => setStartDate(date)}
+                  selected={birthDate}
+                  onChange={(date: any) => setBirthDate(date)}
                   dateFormat="dd/MM/yyyy"
                   className='datepicker'
                   popperPlacement="top-end"

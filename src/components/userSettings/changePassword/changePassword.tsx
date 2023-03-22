@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Alert, Col, Form, Row } from 'react-bootstrap'
+import { ToastContainer, toast } from 'react-toastify'
 import { updatePasswordApi } from '../../../api/UpdatePasswordApi'
 import { useAppSelector } from '../../../app/hooks'
 import { selectUserValues } from '../../../features/user/userSlice'
+import "react-toastify/dist/ReactToastify.css";
 
 const ChangePassword = () => {
 
-  const [newPassword, setNewPassword] = useState("")
-  const [confirmNewPassword, setConfirmNewPassword] = useState("")
-  const [passwordError, setPasswordError] = useState(false)
+  const [newPassword, setNewPassword] = useState<string>("")
+  const [confirmNewPassword, setConfirmNewPassword] = useState<string>("")
+  const [passwordError, setPasswordError] = useState<boolean>(false)
+  const [passwordStatus, setPasswordStatus] = useState<any>()
 
   const user = useAppSelector(selectUserValues);
 
@@ -16,7 +19,11 @@ const ChangePassword = () => {
     e.preventDefault()
     setPasswordError(false)
     if (newPassword == confirmNewPassword) {
-      updatePasswordApi(confirmNewPassword, user.id)
+      let statusPass = await updatePasswordApi(confirmNewPassword, user.id)
+      if (statusPass == 200) {
+        setPasswordStatus(statusPass)
+        toast('Password cambiata con successo');
+      }
     } else {
       setPasswordError(true)
     }
@@ -47,6 +54,15 @@ const ChangePassword = () => {
             <button className='btn btn-primary m-auto' type="submit">Cambia password</button>
           </div>
         </form>
+        {passwordStatus == 200 ? <ToastContainer
+          position="top-right"
+          autoClose={2500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+        /> : null}
       </div>
     </>
   )

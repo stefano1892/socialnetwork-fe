@@ -26,7 +26,6 @@ function Login() {
       password: password
     };
     const doLogin = await loginApi(loginParameters);
-    console.log(doLogin)
     if (doLogin) {
       dispatch(setFullUser(doLogin))
       navigate("/home")

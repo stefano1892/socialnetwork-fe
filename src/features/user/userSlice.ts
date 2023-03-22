@@ -8,6 +8,8 @@ export interface UserState {
   surname: string;
   email: string;
   password: string;
+  phoneNumber: string;
+  birthDate: string;
 }
 
 const initialState: UserState = {
@@ -16,7 +18,9 @@ const initialState: UserState = {
   surname: '',
   secondName: '',
   email: '',
-  password: ''
+  password: '',
+  phoneNumber: '',
+  birthDate: ''
 };
 
 export const userSlice = createSlice({
@@ -29,6 +33,8 @@ export const userSlice = createSlice({
       state.surname = action.payload.surname;
       state.email = action.payload.email;
       state.password = action.payload.password;
+      state.phoneNumber = action.payload.phoneNumber;
+      state.birthDate = action.payload.birthDate
     },
   },
 });
