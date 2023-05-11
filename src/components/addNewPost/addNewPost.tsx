@@ -9,8 +9,7 @@ import { Stack } from '@mui/system';
 
 const AddNewPost = () => {
 
-  const handleSubmit = (e: any) => {
-    console.log(e)
+  const handleSubmit = (e: KeyboardEvent) => {
     if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       console.log('hai inserito un post')
@@ -27,7 +26,7 @@ const AddNewPost = () => {
               className='textarea'
               rows={3}
               placeholder='Inserisci un nuovo post'
-              onKeyDown={(e) => handleSubmit(e)}
+              onKeyDown={(e: any) => handleSubmit(e)}
             />
           </Form.Group>
           <Stack direction="row" className='chipContainer' spacing={1}>

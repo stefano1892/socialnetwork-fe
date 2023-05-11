@@ -21,7 +21,7 @@ export interface IUser {
 export interface IBaseSettingsUser {
   name: string,
   secondName: string,
-  lastName: string,
+  surname: string,
   email: string,
   birthDate: any,
   phoneNumber: string

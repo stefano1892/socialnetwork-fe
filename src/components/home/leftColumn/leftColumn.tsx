@@ -13,15 +13,15 @@ const HomeLeftColumn = () => {
   const user = useAppSelector(selectUserValues);
 
   const renderNameAndSurname = () => {
-    const firstname = user.name
-    const secondName = user.secondName ? user.secondName : null
-    const lastname = user.surname
+    const firstname: string = user.name
+    const secondName: string = user.secondName ? user.secondName : ""
+    const surname: string = user.surname
 
     const nameCapitalized = firstname.charAt(0).toUpperCase() + firstname.slice(1)
     const secondNameCapitalized = secondName ? secondName.charAt(0).toUpperCase() + secondName.slice(1) + ' ' : ''
-    const lastnameCapitalized = lastname.charAt(0).toUpperCase() + lastname.slice(1)
+    const surnameCapitalized = surname.charAt(0).toUpperCase() + surname.slice(1)
 
-    const fullName = nameCapitalized + ' ' + secondNameCapitalized + lastnameCapitalized
+    const fullName: string = nameCapitalized + ' ' + secondNameCapitalized + surnameCapitalized
 
 
     return fullName
@@ -31,7 +31,7 @@ const HomeLeftColumn = () => {
     <>
       <div className='informationsContainer'>
         <div>
-          <img src={ImageProfile} className='profileImage' />
+          <img src={ImageProfile} alt="profileImage" className='profileImage' />
         </div>
         <div className='nameStyle'>
           {renderNameAndSurname()}

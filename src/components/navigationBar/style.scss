@@ -38,21 +38,25 @@
 }
 
 
-.settingsIcon {
+.menu_item_container {
 
-  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 
-  .menu_item_container {
-
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-
-    .settingsIcon {
-      width: 1rem;
-      margin-right: 0.5rem;
-    }
+  .settingsIcon {
+    width: 1rem;
+    margin-right: 0.5rem;
   }
+}
 
-
+.settingsContainer {
+  width: 15rem;
+  height: 20rem;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding: 15px;
+  z-index: 1;
 }

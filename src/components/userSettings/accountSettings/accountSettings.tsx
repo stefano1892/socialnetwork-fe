@@ -11,7 +11,7 @@ import "./style.scss";
 const AccountSettings = () => {
 
   const [name, setName] = useState<string>("")
-  const [lastName, setLastName] = useState<string>("")
+  const [surname, setSurname] = useState<string>("")
   const [secondName, setSecondName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [phoneNumber, setPhoneNumber] = useState<string>("")
@@ -21,7 +21,7 @@ const AccountSettings = () => {
 
   useEffect(() => {
     setName(user.name)
-    setLastName(user.surname)
+    setSurname(user.surname)
     if (user.secondName) {
       setSecondName(user.secondName)
     }
@@ -40,7 +40,7 @@ const AccountSettings = () => {
 
     const values: IBaseSettingsUser = {
       name: name,
-      lastName: lastName,
+      surname: surname,
       secondName: secondName,
       birthDate: dateFormatted,
       email: email,
@@ -71,9 +71,9 @@ const AccountSettings = () => {
             </Form.Group>
           </Col>
           <Col>
-            <Form.Group className="mb-3" controlId="lastName">
+            <Form.Group className="mb-3" controlId="surname">
               <Form.Label className='required'>Cognome</Form.Label>
-              <Form.Control type="text" onChange={(e) => setLastName(e.target.value)} value={lastName} required />
+              <Form.Control type="text" onChange={(e) => setSurname(e.target.value)} value={surname} required />
             </Form.Group>
           </Col>
         </Row>

@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { FormEvent, useState } from 'react';
 import "./style.scss"
 import { useAppSelector } from "../../app/hooks";
 import { selectUserValues } from "../../features/user/userSlice";
-import { Col, Dropdown, Form, OverlayTrigger, Popover, Row } from 'react-bootstrap';
+import { Col, Form, ListGroup, OverlayTrigger, Popover, Row } from 'react-bootstrap';
 import agencyLogo from '../../img/agencylogo.png'
 import ProfileImage from '../home/img/foto_profilo.jpg'
 import SettingsIcon from '../../img/icons/icon_settings.png'
@@ -13,9 +13,11 @@ import { Link } from 'react-router-dom';
 
 export default function NavigationBarComponent() {
 
+  const [showList, setShowList] = useState<boolean>(false)
+
   const user = useAppSelector(selectUserValues);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: any): void => {
     if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       console.log('hai cercato una persona ' + e.target.value)
@@ -41,11 +43,11 @@ export default function NavigationBarComponent() {
     </Popover>
   );
 
-  const ProfileImageComponent = () => (
+  /*const ProfileImageComponent = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
       <img src={ProfileImage} alt="profileIcon" className='profileImage' />
     </OverlayTrigger>
-  );
+  );*/
 
   return (
     <>
@@ -73,7 +75,24 @@ export default function NavigationBarComponent() {
               </Link>
             </div>
             <div className='navItemMargin'>
-              <ProfileImageComponent />
+              {/*<ProfileImageComponent />*/}
+              <img src={ProfileImage} alt="profileIcon" className='profileImage' onClick={() => setShowList(!showList)}/>
+              {showList && (
+                <div className="settingsContainer">
+                  <ul style={{listStyle: 'none', padding: '0', margin: '0'}}>
+                    <li>
+                      <Link to="/settings" className='menu_item_container'>
+                        <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' /> <span>Impostazioni</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/" className='menu_item_container'>
+                        <img src={LogoutIcon} alt="logoutIcon" className='settingsIcon' /> Esci
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           </Col>
         </Row>

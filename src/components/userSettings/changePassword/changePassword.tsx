@@ -3,7 +3,7 @@ import { Alert, Col, Form, Row } from 'react-bootstrap'
 import { ToastContainer, toast } from 'react-toastify'
 import { updatePasswordApi } from '../../../api/UpdatePasswordApi'
 import { useAppSelector } from '../../../app/hooks'
-import { selectUserValues } from '../../../features/user/userSlice'
+import { UserState, selectUserValues } from '../../../features/user/userSlice'
 import "react-toastify/dist/ReactToastify.css";
 
 const ChangePassword = () => {
@@ -13,14 +13,14 @@ const ChangePassword = () => {
   const [passwordError, setPasswordError] = useState<boolean>(false)
   const [passwordStatus, setPasswordStatus] = useState<any>()
 
-  const user = useAppSelector(selectUserValues);
+  const user: UserState = useAppSelector(selectUserValues);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     setPasswordError(false)
-    if (newPassword == confirmNewPassword) {
+    if (newPassword === confirmNewPassword) {
       let statusPass = await updatePasswordApi(confirmNewPassword, user.id)
-      if (statusPass == 200) {
+      if (statusPass === 200) {
         setPasswordStatus(statusPass)
         toast('Password cambiata con successo');
       }

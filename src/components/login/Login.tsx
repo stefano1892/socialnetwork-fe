@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginApi } from '../../api/LoginApi';
-import { IUserLogin } from '../../interfaces/user-interface';
+import { IBaseSettingsUser, IUserLogin } from '../../interfaces/user-interface';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "./login.scss"
 import { useAppDispatch } from '../../app/hooks';
@@ -19,13 +19,13 @@ function Login() {
 
   const agencyLogo = require('../../img/agencylogo.png')
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const loginParameters: IUserLogin = {
       email: email,
       password: password
     };
-    const doLogin = await loginApi(loginParameters);
+    const doLogin: IBaseSettingsUser = await loginApi(loginParameters);
     if (doLogin) {
       dispatch(setFullUser(doLogin))
       navigate("/home")
@@ -37,7 +37,7 @@ function Login() {
   return (
     <>
       <div className='container loginContainer'>
-        <img src={agencyLogo} />
+        <img src={agencyLogo} alt="agencyLogo" />
         <Card className='loginCard'>
           <div className='loginTitle'>
             <span>Accedi alla tua area riservata</span>

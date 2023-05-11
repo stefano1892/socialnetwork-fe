@@ -3,13 +3,11 @@ import { IUserLogin } from "../interfaces/user-interface";
 import { baseUrl } from "../costants";
 
 
-export const loginApi = (loginParameters: IUserLogin) => {
-
-  return axios.post(`${baseUrl}/login`, loginParameters)
-    .then(res => {
-      return res.data
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+export const loginApi = async (loginParameters: IUserLogin) => {
+  try {
+    const res = await axios.post(`${baseUrl}/login`, loginParameters);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
 }
