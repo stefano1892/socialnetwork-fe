@@ -23,7 +23,7 @@ const RightSettings = (props: rightSettingsProps) => {
       <Card className="settingsRightCard">
         {settingSelected[props.setting]}
       </Card>
-      {props.setting == 0 ? <>
+      {props.setting === 0 ? <>
         <Card className="settingsRightCard mb-3">
           <ChangePassword />
         </Card>

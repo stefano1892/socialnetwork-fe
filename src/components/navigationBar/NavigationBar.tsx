@@ -1,8 +1,6 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import "./style.scss"
-import { useAppSelector } from "../../app/hooks";
-import { selectUserValues } from "../../features/user/userSlice";
-import { Col, Form, ListGroup, OverlayTrigger, Popover, Row } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import agencyLogo from '../../img/agencylogo.png'
 import ProfileImage from '../home/img/foto_profilo.jpg'
 import SettingsIcon from '../../img/icons/icon_settings.png'
@@ -15,33 +13,12 @@ export default function NavigationBarComponent() {
 
   const [showList, setShowList] = useState<boolean>(false)
 
-  const user = useAppSelector(selectUserValues);
-
   const handleSubmit = (e: any): void => {
     if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       console.log('hai cercato una persona ' + e.target.value)
     }
   }
-
-  const popover = (
-    <Popover id="popover-basic">
-      <Popover.Body>
-        <div className='container settingsIcon'>
-          <div style={{ marginBottom: '0.5rem' }}>
-            <Link to="/settings" className='menu_item_container'>
-              <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' /> Impostazioni
-            </Link>
-          </div>
-          <div>
-            <Link to="/" className='menu_item_container'>
-              <img src={LogoutIcon} alt="logoutIcon" className='settingsIcon' /> Esci
-            </Link>
-          </div>
-        </div>
-      </Popover.Body>
-    </Popover>
-  );
 
   /*const ProfileImageComponent = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>

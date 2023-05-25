@@ -1,14 +1,10 @@
 import React from 'react';
-import { useAppSelector } from "../../app/hooks";
-import { selectUserValues } from "../../features/user/userSlice";
 import { Col, Row } from 'react-bootstrap';
 import ProfileSection from './ProfileSection';
 import RightColProfile from './RightColProfile';
 
 
 function UserProfile() {
-
-  const user = useAppSelector(selectUserValues);
 
   return (
     <>

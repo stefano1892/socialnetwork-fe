@@ -27,7 +27,7 @@ function Register() {
     };
     const sendRegistration: any = await registerApi(registerParameters);
 
-    if (sendRegistration.status == 200 && typeof sendRegistration.data != "string") {
+    if (sendRegistration.status === 200 && typeof sendRegistration.data != "string") {
       navigate("/")
     } else {
       setExistingUser(true)
@@ -37,7 +37,7 @@ function Register() {
   return (
     <>
       <div className="container registrationContainer">
-        <img src={agencyLogo} />
+        <img src={agencyLogo} alt="agencyLogo"/>
         <Card className='registrationCard'>
           <div className='registrationTitle'>
             <span>Inserisci i tuoi dati</span>

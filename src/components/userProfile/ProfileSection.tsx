@@ -99,7 +99,7 @@ const ProfileSection = () => {
         </div>
       </Card>
 
-        {switchComponent()}
+      {switchComponent()}
     </>
   );
 }

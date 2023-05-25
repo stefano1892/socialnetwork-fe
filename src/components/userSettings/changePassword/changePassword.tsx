@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Alert, Col, Form, Row } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Alert, Form, Row } from 'react-bootstrap'
 import { updatePasswordApi } from '../../../api/UpdatePasswordApi'
 import { useAppSelector } from '../../../app/hooks'
 import { UserState, selectUserValues } from '../../../features/user/userSlice'
@@ -10,7 +10,6 @@ const ChangePassword = () => {
   const [newPassword, setNewPassword] = useState<string>("")
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("")
   const [passwordError, setPasswordError] = useState<boolean>(false)
-  const [passwordStatus, setPasswordStatus] = useState<any>()
 
   const user: UserState = useAppSelector(selectUserValues);
 
@@ -18,10 +17,7 @@ const ChangePassword = () => {
     e.preventDefault()
     setPasswordError(false)
     if (newPassword === confirmNewPassword) {
-      let statusPass = await updatePasswordApi(confirmNewPassword, user.id)
-      if (statusPass === 200) {
-        setPasswordStatus(statusPass)
-      }
+      await updatePasswordApi(confirmNewPassword, user.id) 
     } else {
       setPasswordError(true)
     }
