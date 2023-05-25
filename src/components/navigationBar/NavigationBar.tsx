@@ -81,6 +81,11 @@ export default function NavigationBarComponent() {
                 <div className="settingsContainer">
                   <ul style={{listStyle: 'none', padding: '0', margin: '0'}}>
                     <li>
+                      <Link to="/profile" className='menu_item_container'>
+                        <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' /> <span>Profilo</span>
+                      </Link>
+                    </li>
+                    <li>
                       <Link to="/settings" className='menu_item_container'>
                         <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' /> <span>Impostazioni</span>
                       </Link>

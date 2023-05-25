@@ -47,8 +47,8 @@ const AccountSettings = () => {
       phoneNumber: phoneNumber
     }
 
-    //fare chiamata per mandare a db i risultati
     const settingsUpdated = await updateSettings(userId, values)
+    //riprovare con un toast per confermare la modifica
     console.log(settingsUpdated)
   }
 

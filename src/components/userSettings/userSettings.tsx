@@ -5,7 +5,7 @@ import RightSettings from './rightSettings/rightSettings';
 
 const UserSettings = () => {
 
-  const [setting, setSetting] = useState(0)
+  const [setting, setSetting] = useState<number>(0)
 
   return (
     <>

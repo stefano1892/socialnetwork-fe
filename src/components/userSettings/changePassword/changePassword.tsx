@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Alert, Col, Form, Row } from 'react-bootstrap'
-import { ToastContainer, toast } from 'react-toastify'
 import { updatePasswordApi } from '../../../api/UpdatePasswordApi'
 import { useAppSelector } from '../../../app/hooks'
 import { UserState, selectUserValues } from '../../../features/user/userSlice'
@@ -22,7 +21,6 @@ const ChangePassword = () => {
       let statusPass = await updatePasswordApi(confirmNewPassword, user.id)
       if (statusPass === 200) {
         setPasswordStatus(statusPass)
-        toast('Password cambiata con successo');
       }
     } else {
       setPasswordError(true)
@@ -54,15 +52,6 @@ const ChangePassword = () => {
             <button className='btn btn-primary m-auto' type="submit">Cambia password</button>
           </div>
         </form>
-        {passwordStatus == 200 ? <ToastContainer
-          position="top-right"
-          autoClose={2500}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-        /> : null}
       </div>
     </>
   )

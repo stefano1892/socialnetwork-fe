@@ -4,6 +4,7 @@ import userReducer from '../features/user/userSlice';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import { combineReducers } from '@reduxjs/toolkit';
+import { persistStore } from 'redux-persist';
 
 const persistConfig = {
   key: 'root',
@@ -25,6 +26,9 @@ export const store = configureStore({
       serializableCheck: false,
     }),
 });
+
+
+export let persistor = persistStore(store)
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
