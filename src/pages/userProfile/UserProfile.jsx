@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import ProfileSection from './ProfileSection';
-import RightColProfile from './RightColProfile';
+import ProfileSection from '../../components/userProfile/ProfileSection';
+import RightColProfile from '../../components/userProfile/RightColProfile';
 
 
 function UserProfile() {

@@ -1,0 +1,55 @@
+.informationsContainer {
+  padding: 1rem;
+}
+
+.profileImage {
+  width: 4rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nameStyle {
+  font-weight: bold;
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.cardFooter {
+  position: absolute;
+  bottom: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+  border-top: 1px solid $body-color;
+  color: $base-blue;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.personalPhrase {
+  margin-top: 1rem;
+  font-weight: 100;
+}
+
+.separator {
+  width: 100%;
+  border-bottom: 1px solid $body-color;
+  margin-top: 2rem;
+}
+
+.menuItem {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  .linkStyle {
+    text-decoration: none;
+    color: black;
+  }
+
+  .menuIcon {
+    width: 1.2rem;
+  }
+}

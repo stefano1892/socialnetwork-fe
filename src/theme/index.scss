@@ -1,4 +1,18 @@
 @import url("./globalTheme.scss");
 
 @import url("./pages/home/home.scss");
-@import url("./pages/login/login.scss");
+@import url("./pages/home/homeLeftColumn.scss");
+@import url("./pages/home/homeRightColumn.scss");
+
+
+@import url("./pages/login.scss");
+@import url("./pages/registration.scss");
+@import url("./pages/userProfile.scss");
+
+@import url("./pages/settings/notificationSettings.scss");
+@import url("./pages/settings/settingsContent.scss");
+@import url("./pages/settings/settingsSections.scss");
+@import url("./pages/settings/accountSettings.scss");
+
+@import url("./components/navigationBar.scss");
+@import url("./components/addNewPost.scss");

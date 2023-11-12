@@ -1,0 +1,38 @@
+.registrationContainer {
+    text-align: center;
+    margin-top: 10rem;
+  }
+  
+  .registrationCard {
+    width: 25rem;
+    padding: 2rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 2rem;
+  
+    .registrationTitle {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  
+    .registerButton {
+      width: 100%;
+      margin-bottom: 1rem;
+      background-color: #2668B5;
+    }
+  
+    .labelGroup {
+      font-weight: 600;
+    }
+  
+    .existingUser {
+      margin-top: 1rem;
+      border: 6px solid #FA2906;
+      border-radius: 0.5rem;
+      height: 2.5rem;
+      background-color: #FA543D;
+      color: white;
+      font-weight: 700;
+      display: block;
+    }
+  }
