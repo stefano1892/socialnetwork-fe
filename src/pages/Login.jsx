@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginApi } from '../../api/LoginApi';
+import { loginApi } from '../api/LoginApi';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import { useAppDispatch } from '../../app/hooks';
-import { setFullUser } from '../../features/user/userSlice';
+import { useAppDispatch } from '../app/hooks';
+import { setFullUser } from '../features/user/userSlice';
 
 function Login() {
 
@@ -15,7 +15,7 @@ function Login() {
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const agencyLogo = require('../../img/agencylogo.png')
+  const agencyLogo = require('../img/agencylogo.png')
 
   const handleSubmit = async (event) => {
     event.preventDefault();

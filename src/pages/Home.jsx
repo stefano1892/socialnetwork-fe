@@ -1,9 +1,9 @@
 import { Card } from "@mui/material"
 import React from "react"
 import { Col, Row } from "react-bootstrap"
-import AddNewPost from "../../components/addNewPost/addNewPost"
-import HomeLeftColumn from "../../components/home/homeLeftColumn"
-import HomeRightColumn from "../../components/home/homeRightColumn"
+import AddNewPost from "../components/addNewPost/addNewPost"
+import HomeLeftColumn from "../components/home/homeLeftColumn"
+import HomeRightColumn from "../components/home/homeRightColumn"
 
 const HomeComponent = () => {
 

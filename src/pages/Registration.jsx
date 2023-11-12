@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { registerApi } from "../../api/RegisterApi";
+import { registerApi } from "../api/RegisterApi";
 import { Card, Form, Button } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
@@ -13,7 +13,7 @@ function Register() {
 
   let navigate = useNavigate();
 
-  const agencyLogo = require('../../img/f1Logo.png')
+  const agencyLogo = require('../img/f1Logo.png')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
