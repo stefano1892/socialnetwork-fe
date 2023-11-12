@@ -76,7 +76,7 @@ const AccountSettings = () => {
             </Form.Group>
           </Col>
         </Row>
-        <Row>
+        {/*<Row>
           <Col md={4}>
             <Form.Group className="mb-3" controlId="birthDate">
               <Form.Label className='required'>Data di nascita</Form.Label>
@@ -107,7 +107,7 @@ const AccountSettings = () => {
               </div>
             </Form.Group>
           </Col>
-        </Row>
+                </Row>*/}
         <Row>
           <Col>
             <Form.Group className="mb-3 phoneNumber" controlId="phoneNumber">

@@ -1,8 +1,7 @@
 import axios from "axios";
-import { IUserRegister } from "../interfaces/user-interface";
 import { baseUrl } from "../costants"
 
-export const registerApi = (registerParameters: IUserRegister) => {
+export const registerApi = (registerParameters) => {
   return axios.post(`${baseUrl}/register`, registerParameters)
     .then(res => {
       return res
