@@ -1,0 +1,31 @@
+.loginContainer {
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.loginCard {
+  width: 25rem;
+  padding: 2rem;
+  text-align: center;
+  margin: auto;
+  margin-top: 2rem;
+
+  .loginTitle {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .passwordGroup {
+    margin-top: 1rem;
+  }
+
+  .loginButton {
+    width: 100%;
+    background-color: $base-blue;
+  }
+
+  .labelGroup {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+}

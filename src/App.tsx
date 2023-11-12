@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './components/login/Login';
-import Register from './components/registration/Registration';
-import UserProfile from './components/userProfile/UserProfile';
-import HomeComponent from './components/home/Home';
-import NavigationBarComponent from './components/navigationBar/NavigationBar';
-import UserSettings from './components/userSettings/userSettings';
+import Login from './pages/login/Login';
+import Register from './pages/registration/Registration';
+import UserProfile from './pages/userProfile/UserProfile';
+import HomeComponent from './pages/home/Home';
+import NavigationBarComponent from './pages/navigationBar/NavigationBar';
+import UserSettings from './pages/userSettings/userSettings';
 
 const App: React.FC = () => {
 
