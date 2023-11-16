@@ -3,26 +3,19 @@
     width: 100%;
     min-width: none;
   
-    .leftCol {
-  
+    .left-col-card {
+      height: 45rem;
+      width: 20rem;
+      margin-left: auto;
+      margin-top: 1rem;
+      position: relative;
       text-align: center;
-  
-      .leftColCard {
-        height: 45rem;
-        width: 20rem;
-        margin-left: auto;
-        margin-top: 1rem;
-        position: relative;
-      }
     }
-  
-    .rightCol {
-  
-      .rightColCard {
-        height: 45rem;
-        width: 20rem;
-        margin-right: auto;
-        margin-top: 1rem;
-      }
+
+    .right-col-card {
+      height: 45rem;
+      width: 20rem;
+      margin-right: auto;
+      margin-top: 1rem;
     }
   }

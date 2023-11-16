@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card } from '@mui/material';
 import { Form } from 'react-bootstrap';
-import iconPotoSvg from './addNewPostImg/iconPhoto.png';
-import iconVideo from './addNewPostImg/iconVideo.png'
+import iconPotoSvg from '../img/addNewPostImg/iconPhoto.png';
+import iconVideo from '../img/addNewPostImg/iconVideo.png'
 
 import { Stack } from '@mui/system';
 

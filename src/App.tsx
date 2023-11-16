@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import Register from './pages/Registration';
 import UserProfile from './pages/UserProfile';
 import HomeComponent from './pages/Home';
-import NavigationBarComponent from './components/navigationBar/NavigationBar';
+import NavigationBarComponent from './components/NavigationBar';
 import UserSettings from './pages/userSettings';
 
 const App: React.FC = () => {

@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import agencyLogo from '../../img/agencylogo.png'
-import ProfileImage from '../../img/foto_profilo.jpg'
-import SettingsIcon from '../../img/icons/icon_settings.png'
-import NotifyIcon from '../../img/icons/icona_notifiche.png'
-import ChatIcon from '../../img/icons/icona_chat.png'
-import LogoutIcon from '../../img/icons/logout.png'
+import agencyLogo from '../img/agencylogo.png'
+import ProfileImage from '../img/foto_profilo.jpg'
+import SettingsIcon from '../img/icons/icon_settings.png'
+import NotifyIcon from '../img/icons/icona_notifiche.png'
+import ChatIcon from '../img/icons/icona_chat.png'
+import LogoutIcon from '../img/icons/logout.png'
 import { Link } from 'react-router-dom';
 
 export default function NavigationBarComponent() {
 
   const [showList, setShowList] = useState(false)
+  const containerRef = useRef(null);
 
   const handleSubmit = (e) => {
     if (e.keyCode === 13 && e.shiftKey === false) {
@@ -18,6 +19,19 @@ export default function NavigationBarComponent() {
       console.log('hai cercato una persona ' + e.target.value)
     }
   }
+
+  const handleClickOutside = (e) => {
+    if (containerRef.current && !containerRef.current.contains(e.target)) {
+      setShowList(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   /*const ProfileImageComponent = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
@@ -50,25 +64,25 @@ export default function NavigationBarComponent() {
                 <img src={NotifyIcon} alt="notifyIcon" className='settingsIcon' />
               </Link>
             </div>
-            <div className='navItemMargin'>
+            <div className='navItemMargin' ref={containerRef}>
               {/*<ProfileImageComponent />*/}
               <img src={ProfileImage} alt="profileIcon" className='profileImage' onClick={() => setShowList(!showList)}/>
               {showList && (
                 <div className="settingsContainer">
                   <ul style={{listStyle: 'none', padding: '0', margin: '0'}}>
-                    <li>
+                    <li className='mb-1'>
                       <Link to="/profile" className='menu_item_container'>
-                        <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' /> <span>Profilo</span>
+                        <img src={ProfileImage} alt="settingsIcon" className='profile-image-panel' /> <b>Stefano Calcaterra</b>
                       </Link>
                     </li>
-                    <li>
+                    <li className='mb-1'>
                       <Link to="/settings" className='menu_item_container'>
-                        <img src={SettingsIcon} alt="settingsIcon" className='settingsIcon' /> <span>Impostazioni</span>
+                        <img src={SettingsIcon} alt="settingsIcon" className='settings-icon-panel' /> <span>Impostazioni</span>
                       </Link>
                     </li>
-                    <li>
+                    <li className='mb-1'>
                       <Link to="/" className='menu_item_container'>
-                        <img src={LogoutIcon} alt="logoutIcon" className='settingsIcon' /> Esci
+                        <img src={LogoutIcon} alt="logoutIcon" className='settings-icon-panel' /> Esci
                       </Link>
                     </li>
                   </ul>

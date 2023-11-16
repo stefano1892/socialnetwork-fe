@@ -1,8 +1,8 @@
 import React from 'react'
 import { Card } from "@mui/material"
-import UserIcon from '../../../img/icons/user_icon.png'
-import SettingsIcon from '../../../img/icons/icon_settings.png'
-import CloseAccount from '../../../img/icons/close_account.png'
+import UserIcon from '../../img/icons/user_icon.png'
+import SettingsIcon from '../../img/icons/icon_settings.png'
+import CloseAccount from '../../img/icons/close_account.png'
 
 
 const LeftSettings = (props) => {

@@ -26,6 +26,12 @@
       cursor: pointer;
       margin: 0;
     }
+
+    .profile-image-panel {
+      width: 25px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
   
     .settingsIcon {
       width: 1.2rem;
@@ -38,25 +44,26 @@
   }
   
   
-  .menu_item_container {
-  
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-  
-    .settingsIcon {
-      width: 1rem;
-      margin-right: 0.5rem;
-    }
-  }
-  
   .settingsContainer {
     width: 15rem;
-    height: 20rem;
+    height: auto;
     position: absolute;
     background-color: white;
     border: 1px solid #dedede;
     border-radius: 5px;
     padding: 15px;
     z-index: 1;
+
+    .menu_item_container {
+  
+      cursor: pointer;
+      text-decoration: none !important;
+      color: black;
+      margin-top: 5px;
+    
+      .settings-icon-panel {
+        width: 20px;
+        margin-right: 15px;
+      }
+    }
   }

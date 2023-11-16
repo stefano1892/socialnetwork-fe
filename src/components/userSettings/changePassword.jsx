@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Alert, Form, Row } from 'react-bootstrap'
-import { updatePasswordApi } from '../../../api/UpdatePasswordApi'
-import { useAppSelector } from '../../../app/hooks'
-import { selectUserValues } from '../../../features/user/userSlice'
+import { updatePasswordApi } from '../../api/UpdatePasswordApi'
+import { useAppSelector } from '../../app/hooks'
+import { selectUserValues } from '../../features/user/userSlice'
 import "react-toastify/dist/ReactToastify.css";
 
 const ChangePassword = () => {

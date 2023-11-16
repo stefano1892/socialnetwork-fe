@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap';
-import LeftSettings from '../components/userSettings/settingsSections/settingsSections';
-import RightSettings from '../components/userSettings/settingsContent/settingsContent';
+import LeftSettings from '../components/userSettings/settingsSections';
+import RightSettings from '../components/userSettings/settingsContent';
 
 const UserSettings = () => {
 

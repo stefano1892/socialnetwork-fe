@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { updateSettings } from '../../../api/UpdatePasswordApi';
-import { useAppSelector } from '../../../app/hooks';
-import { selectUserValues } from '../../../features/user/userSlice';
+import { updateSettings } from '../../api/UpdatePasswordApi';
+import { useAppSelector } from '../../app/hooks';
+import { selectUserValues } from '../../features/user/userSlice';
 
 const AccountSettings = () => {
 
